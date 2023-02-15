@@ -3,6 +3,7 @@ const app=express();
 const conn=require("./config/db");
 const Users=require('./models/user');
 const dotenv=require("dotenv");
+const cors=require("cors")
 const UserRoutes=require('./Routes/userRoutes')
 
 
@@ -12,6 +13,7 @@ dotenv.config({path:'./config/config.env'});
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+app.use(cors());
 
 
 //app.use('/api',UserRoutes);
